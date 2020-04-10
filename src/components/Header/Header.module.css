@@ -1,5 +1,6 @@
 #Header {
-    width: 100%;
-    background-color: brown;
-    height: 100%;
+    width: 74%;
+    position: absolute;
+    height: 4.5rem;
+    border-bottom: 1px solid black;
 }

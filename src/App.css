@@ -1,9 +1,13 @@
-.App {
+body {
   background-color: #2e2e2e;
 }
 
 .small-icon {
-  margin-top: .4rem;
-  margin-bottom: .4rem;
+  margin-top: .5rem;
+  margin-left: 1rem;
   width: 3rem;
+}
+
+.header-expanded {
+  margin-left: 25%;
 }

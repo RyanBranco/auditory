@@ -4,9 +4,8 @@ import styles from "./Header.module.css";
 
 const Header = () => {
     return (
-        <div id={styles.Header}>
+        <div className="header-expanded" id={styles.Header}>
             <img src={Logo} alt="auditory logo" className="small-icon"></img>
-            <hr />
         </div>
     )
 }
