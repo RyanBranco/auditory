@@ -1,6 +1,5 @@
 #SideBar {
-    display: inline-block;
-    width: 24%;
+    position: absolute;
     height: 100vh;
     background-color: #1f1f1f;
 }

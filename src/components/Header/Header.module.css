@@ -1,6 +1,29 @@
 #Header {
-    width: 74%;
-    position: absolute;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
     height: 4.5rem;
-    border-bottom: 1px solid black;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1px;
+    background-color: #2e2e2e;
+}
+
+#search {
+    width: 25%;
+    background-color: #2e2e2e;
+}
+
+input {
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+.icon {
+    font-size: 20px;
 }
