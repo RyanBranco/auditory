@@ -5,16 +5,18 @@ const logger = require('morgan');
 
 const app = express();
 
+require("dotenv").config();
+require("./config/database")
+
 // Configure both serve-favicon & static middlewares
 // to serve from the production 'build' folder
 app.use(logger('dev'));
 app.use(express.json());
 
-// Put API routes here, before the "catch all" route
+// API routes
 
 
-// The following "catch all" route (note the *)is necessary
-// for a SPA's client-side routing to properly work
+// "catch all" route
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
