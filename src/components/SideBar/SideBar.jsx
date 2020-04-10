@@ -1,12 +1,15 @@
 import React from "react";
+import LoginSideBar from "../LoginSideBar/LoginSideBar";
+import SideBarHeader from "../SideBarHeader/SideBarHeader"
 import styles from "./SideBar.module.css"
 
-const Header = () => {
+const SideBar = () => {
     return (
         <div id={styles.SideBar} className="expanded-side-bar">
-            <p></p>
+            <SideBarHeader />
+            <LoginSideBar />
         </div>
     )
 }
 
-export default Header;
+export default SideBar;
