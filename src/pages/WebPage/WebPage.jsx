@@ -6,6 +6,7 @@ const WebPage = (props) => {
     return(
         <div>
             <SideBar
+                handleLogout={props.handleLogout}
                 user={props.user}
             />
             <Main
