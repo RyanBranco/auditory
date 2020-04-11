@@ -7,7 +7,7 @@ const Header = () => {
         <div className="header-expanded" id={styles.Header}>
             <span><img src={Logo} alt="auditory logo" className="small-icon"></img></span>
             <span id={styles.search}>
-            <input placeholder="Search"></input>
+                <input placeholder="Search"></input>
             </span>
             <div className="switch">
                 <label>

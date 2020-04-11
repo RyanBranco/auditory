@@ -1,3 +1,7 @@
 #LoginSideBar {
     margin-top: 2rem;
 }
+
+#SideBarContent {
+    color: red;
+}

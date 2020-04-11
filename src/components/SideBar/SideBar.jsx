@@ -1,13 +1,13 @@
 import React from "react";
-import LoginSideBar from "../LoginSideBar/LoginSideBar";
+import SideBarContent from "../SideBarContent/SideBarContent";
 import SideBarHeader from "../SideBarHeader/SideBarHeader"
 import styles from "./SideBar.module.css"
 
-const SideBar = () => {
+const SideBar = (props) => {
     return (
         <div id={styles.SideBar} className="expanded-side-bar">
             <SideBarHeader />
-            <LoginSideBar />
+            <SideBarContent user={props.user} />
         </div>
     )
 }
