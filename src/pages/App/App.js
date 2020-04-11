@@ -3,13 +3,14 @@ import { Route, Switch } from "react-router-dom";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import WebPage from "../WebPage/WebPage";
+import userService from '../../utils/userService';
 import "./App.css";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      
+      user: userService.getUser()
     }
   }
   render() {
@@ -29,7 +30,9 @@ class App extends Component {
             />
           }/>
           <Route exact path='/' render={() =>
-            <WebPage />
+            <WebPage
+              user={this.state.user}
+            />
           }/>
         </Switch>
         

@@ -2,11 +2,15 @@ import React from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import Main from "../../components/Main/Main";
 
-const WebPage = () => {
+const WebPage = (props) => {
     return(
         <div>
-            <SideBar />
-            <Main />
+            <SideBar
+                user={props.user}
+            />
+            <Main
+                user={props.user}
+            />
         </div>
     )
 }

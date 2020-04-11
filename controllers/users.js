@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
 
 module.exports = {
   signup
@@ -14,4 +16,12 @@ async function signup(req, res) {
     // Probably a duplicate email
     res.status(400).json(err);
   }
+}
+
+function createJWT(user) {
+  return jwt.sign(
+    {user}, // data payload
+    SECRET,
+    {expiresIn: '24h'}
+  );
 }

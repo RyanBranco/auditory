@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
+import styles from "./SignupForm.module.css"
 
 class SignupForm extends Component {
 
@@ -15,7 +16,7 @@ class SignupForm extends Component {
     this.props.updateMessage('');
     this.setState({
       // Using ES2015 Computed Property Names
-      [e.target.firstName]: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
@@ -26,18 +27,19 @@ class SignupForm extends Component {
       // Successfully signed up - show GamePage
       this.props.history.push('/');
     } catch (err) {
+      console.log(err)
       // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);
     }
   }
 
   isFormInvalid() {
-    return !(this.state.firstName && this.state.email && this.state.password && this.state.userName === this.state.passwordConf);
+    return !(this.state.firstName && this.state.email && this.state.password === this.state.passwordConf);
   }
 
   render() {
     return (
-      <div>
+      <div id={styles.SignUpForm}>
         <header>Sign Up</header>
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -52,7 +54,7 @@ class SignupForm extends Component {
           </div>
           <div>
             <div>
-              <input type="text" placeholder="UserName" value={this.state.email} name="userName" onChange={this.handleChange} />
+              <input type="text" placeholder="UserName" value={this.state.userName} name="userName" onChange={this.handleChange} />
             </div>
           </div>
           <div>
@@ -67,7 +69,7 @@ class SignupForm extends Component {
           </div>
           <div>
             <div>
-              <button disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+              <button disabled={this.isFormInvalid()}>Sign Up</button>
             </div>
           </div>
         </form>

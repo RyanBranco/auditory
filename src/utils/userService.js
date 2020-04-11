@@ -1,3 +1,5 @@
+import tokenService from './tokenService';
+
 const BASE_URL = '/api/users/';
 
 function signup(user) {
@@ -8,10 +10,18 @@ function signup(user) {
   })
   .then(res => {
     if (res.ok) return res.json();
-    
-    throw new Error('email already taken');
+    throw new Error('Email already taken!');
   })
-  .then(data => data);
+  .then(({ token }) => {
+    tokenService.setToken(token);
+  });
 }
 
-export default signup;
+function getUser() {
+  return tokenService.getUserFromToken();
+}
+
+export default {
+  signup,
+  getUser
+}
