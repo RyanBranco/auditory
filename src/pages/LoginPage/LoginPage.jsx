@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import Logo from "../../images/auditorylogodarkmode.png"
+import styles from "./LoginPage.module.css";
 
 class LoginPage extends Component {
-  
   state = {
     email: '',
-    pw: ''
+    pw: '',
+    error: ''
   };
 
   handleChange = (e) => {
@@ -26,29 +28,31 @@ class LoginPage extends Component {
       this.props.history.push('/');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
-      alert('Invalid Credentials!');
+      alert('invalid credentials');
     }
   }
 
   render() {
     return (
-      <div>
-        <header>Log In</header>
+      <div id={styles.LoginPage}>
+        <img id={styles.LoginPageImg} src={Logo} alt="dark mode logo"></img>
+        <h5 id={styles.auditoryText}>auditory</h5>
         <form onSubmit={this.handleSubmit} >
           <div>
             <div>
-              <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+              <input type="email" placeholder="email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <input type="password" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+              <input type="password" placeholder="password" value={this.state.pw} name="pw" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <button>Log In</button>
-              <Link to='/'>Cancel</Link>
+              <button>log in</button>
+              <Link to='/'>cancel</Link>
+              <p id={styles.errormessage}>{this.state.error}</p>
             </div>
           </div>
         </form>

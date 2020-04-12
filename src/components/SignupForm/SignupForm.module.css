@@ -1,5 +1,23 @@
 #SignUpForm {
-    width: 50%;
+    width: 25%;
     position: relative;
     margin: auto;
+}
+
+button {
+    border-radius: 5px;
+    margin-right: 1.5rem;
+}
+
+input {
+    margin-bottom: 1rem;
+}
+
+button {
+    background-color: #18c9ac;
+    border-color: #18c9ac; 
+}
+
+.false button:hover {
+    cursor: pointer;
 }

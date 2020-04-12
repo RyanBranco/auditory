@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
+import { Link } from "react-router-dom";
 import styles from "./SignupForm.module.css"
 
 class SignupForm extends Component {
@@ -34,42 +35,42 @@ class SignupForm extends Component {
   }
 
   isFormInvalid() {
-    return !(this.state.firstName && this.state.email && this.state.password === this.state.passwordConf);
+    return !(this.state.firstName && this.state.email && this.state.userName && this.state.password.length > 5 && this.state.password === this.state.passwordConf);
   }
 
   render() {
     return (
       <div id={styles.SignUpForm}>
-        <header>Sign Up</header>
         <form onSubmit={this.handleSubmit}>
           <div>
             <div>
-              <input type="text" placeholder="First name" value={this.state.name} name="firstName" onChange={this.handleChange} />
+              <input type="text" placeholder="first name" value={this.state.name} name="firstName" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <input type="email" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+              <input type="email" placeholder="email" value={this.state.email} name="email" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <input type="text" placeholder="UserName" value={this.state.userName} name="userName" onChange={this.handleChange} />
+              <input type="text" placeholder="userName" value={this.state.userName} name="userName" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <input type="password" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+              <input type="password" placeholder="password" value={this.state.password} name="password" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <input type="password" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+              <input type="password" placeholder="confirm password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             </div>
           </div>
           <div>
             <div>
-              <button disabled={this.isFormInvalid()}>Sign Up</button>
+              <button className={this.isFormInvalid()} disabled={this.isFormInvalid()}>Sign Up</button>
+              <Link to='/'>cancel</Link>
             </div>
           </div>
         </form>

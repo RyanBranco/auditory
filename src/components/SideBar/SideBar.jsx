@@ -7,7 +7,10 @@ const SideBar = (props) => {
     return (
         <div id={styles.SideBar} className="expanded-side-bar">
             <SideBarHeader />
-            <SideBarContent user={props.user} />
+            <SideBarContent 
+                handleLogout={props.handleLogout}
+                user={props.user} 
+            />
         </div>
     )
 }

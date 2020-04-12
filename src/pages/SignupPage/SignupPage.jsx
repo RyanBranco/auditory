@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
 import SignupForm from '../../components/SignupForm/SignupForm';
-import styles from "./SignupPage.module.css"
+import styles from "./SignupPage.module.css";
+import Logo from "../../images/auditorylogodarkmode.png"
 
 class SignupPage extends Component {
     constructor(props) {
@@ -18,9 +18,10 @@ class SignupPage extends Component {
     render() {
         return (
             <div id={styles.signup}>
+                <header>sign up</header>
+                <img src={Logo} alt="dark mode logo"></img>
                 <SignupForm {...this.props} updateMessage={this.updateMessage} />
-                <p>{this.state.message}</p>
-                <Link to='/'>Cancel</Link>
+                <p id={styles.errormessage}>{this.state.message}</p>
             </div>
         )
     }

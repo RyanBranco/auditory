@@ -3,8 +3,8 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-const UserSchema = new mongoose.Schema({
-    username: {
+const userSchema = new mongoose.Schema({
+    userName: {
         type: String, 
         required: true,
         unique: true
@@ -42,4 +42,4 @@ userSchema.methods.comparePassword = function(tryPassword, cb) {
     bcrypt.compare(tryPassword, this.password, cb);
 };
 
-module.exports = mongoose.model("User", UserSchema)
+module.exports = mongoose.model("User", userSchema)

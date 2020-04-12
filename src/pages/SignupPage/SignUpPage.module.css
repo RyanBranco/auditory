@@ -1,0 +1,28 @@
+#signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+img {
+    position: relative;
+    width: 130px;
+    margin: auto;
+    margin-bottom: 4vh;
+}
+
+input {
+    color: white;
+}
+
+header {
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    color: white;
+}
+
+#errormessage {
+    color: #d12413;
+    margin: auto;
+}
