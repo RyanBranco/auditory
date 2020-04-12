@@ -34,9 +34,10 @@ userSchema.pre('save', function(next) {
       if (err) return next(err);
       // replace the user provided password with the hash
       user.password = hash;
+      console.log("hash", user)
       next();
     });
-});
+  });
 
 userSchema.methods.comparePassword = function(tryPassword, cb) {
     bcrypt.compare(tryPassword, this.password, cb);

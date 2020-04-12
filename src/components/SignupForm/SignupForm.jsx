@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import styles from "./SignupForm.module.css"
 
 class SignupForm extends Component {
+  
   state = {
-    firstName: '',
-    email: '',
     userName: '',
+    email: '',
+    firstName: '',
     password: '',
-    passwordConf: '',
-    message: ''
+    passwordConf: ''
   };
 
   handleChange = (e) => {
@@ -54,7 +54,7 @@ class SignupForm extends Component {
           </div>
           <div>
             <div>
-              <input type="text" placeholder="userName" value={this.state.userName} name="userName" onChange={this.handleChange} />
+              <input type="text" placeholder="username" value={this.state.userName} name="userName" onChange={this.handleChange} />
             </div>
           </div>
           <div>
@@ -69,7 +69,7 @@ class SignupForm extends Component {
           </div>
           <div>
             <div>
-              <button className={this.isFormInvalid()} disabled={this.isFormInvalid()}>sign up</button>
+              <button disabled={this.isFormInvalid()}>sign up</button>
               <Link to='/'>cancel</Link>
             </div>
           </div>
