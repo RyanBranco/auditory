@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import styles from "./SignupForm.module.css"
 
 class SignupForm extends Component {
-
   state = {
     firstName: '',
     email: '',
     userName: '',
     password: '',
-    passwordConf: ''
+    passwordConf: '',
+    message: ''
   };
 
   handleChange = (e) => {

@@ -21,3 +21,7 @@ button {
 .false button:hover {
     cursor: pointer;
 }
+
+#errormessage {
+    color: #d12413;
+}

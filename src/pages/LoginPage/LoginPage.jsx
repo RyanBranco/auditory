@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
-import Logo from "../../images/auditorylogodarkmode.png"
+import Logo from "../../images/auditorylogodarkmodewithtext.png"
 import styles from "./LoginPage.module.css";
 
 class LoginPage extends Component {
@@ -28,7 +28,7 @@ class LoginPage extends Component {
       this.props.history.push('/');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
-      alert('invalid credentials');
+      this.setState({error: 'invalid credentials'});
     }
   }
 
@@ -36,7 +36,6 @@ class LoginPage extends Component {
     return (
       <div id={styles.LoginPage}>
         <img id={styles.LoginPageImg} src={Logo} alt="dark mode logo"></img>
-        <h5 id={styles.auditoryText}>auditory</h5>
         <form onSubmit={this.handleSubmit} >
           <div>
             <div>
