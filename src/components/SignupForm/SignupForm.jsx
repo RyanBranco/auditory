@@ -6,9 +6,9 @@ import styles from "./SignupForm.module.css"
 class SignupForm extends Component {
   
   state = {
-    userName: '',
-    email: '',
     firstName: '',
+    email: '',
+    userName: '',
     password: '',
     passwordConf: ''
   };
@@ -26,7 +26,7 @@ class SignupForm extends Component {
     try {
       await userService.signup(this.state);
       // Successfully signed up - show GamePage
-      this.props.handleSignup();
+      this.props.handleSignupOrLogin();
       this.props.history.push('/');
     } catch (err) {
       // Invalid user data (probably duplicate email)
@@ -35,7 +35,7 @@ class SignupForm extends Component {
   }
 
   isFormInvalid() {
-    return !(this.state.firstName && this.state.email && this.state.userName && this.state.password.length > 5 && this.state.password === this.state.passwordConf);
+    return !(this.state.firstName && this.state.email && this.state.userName && this.state.password === this.state.passwordConf);
   }
 
   render() {

@@ -20,9 +20,7 @@ class SignupPage extends Component {
             <div id={styles.signup}>
                 <header>sign up</header>
                 <img id={styles.SignupLogo} src={Logo} alt="dark mode logo"></img>
-                <SignupForm {...this.props} 
-                updateMessage={this.updateMessage} 
-                />
+                <SignupForm {...this.props} updateMessage={this.updateMessage} />
                 <div id={styles.errormessage}>
                     <p>{this.state.message}</p>
                 </div>
