@@ -1,6 +1,8 @@
 import React from "react";
+import { Switch, Route } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar";
 import Main from "../../components/Main/Main";
+import UploadPage from "../UploadPage/UploadPage";
 
 const WebPage = (props) => {
     return(
@@ -9,9 +11,16 @@ const WebPage = (props) => {
                 handleLogout={props.handleLogout}
                 user={props.user}
             />
-            <Main
-                user={props.user}
-            />
+            <Switch>
+                <Route exact path="/" render={() =>
+                    <Main
+                        user={props.user}
+                    />
+                }/>
+                <Route exact path="/upload" render={() => 
+                    <UploadPage />
+                }/> 
+            </Switch>
         </div>
     )
 }

@@ -39,14 +39,11 @@ class App extends Component {
               history={history}
             />
           }/>
-          <Route exact path='/' render={() =>
-            <WebPage
-              handleLogout={this.handleLogout}
-              user={this.state.user}
-            />
-          }/>
+          <WebPage
+            handleLogout={this.handleLogout}
+            user={this.state.user}
+          />
         </Switch>
-        
       </div>
     );
   }

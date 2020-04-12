@@ -5,7 +5,9 @@ import styles from "./SideBarContent.module.css";
 const SideBarContent = (props) => {
     let sideBar = props.user ?
         <div>
-            <Link id={styles.SideBarContent} to='' onClick={props.handleLogout}>logout</Link>
+            <Link to="/"><p>home</p></Link>
+            <Link to="/upload"><p>upload</p></Link>
+            <Link id={styles.SideBarContent} to='' onClick={props.handleLogout}><p>logout</p></Link>
         </div>
         :
         <div id={styles.LoginSideBar}>
