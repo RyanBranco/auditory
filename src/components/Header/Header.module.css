@@ -27,3 +27,9 @@ input:focus {
 .icon {
     font-size: 20px;
 }
+
+.smallIcon {
+    margin-top: .3rem;
+    margin-left: 1rem;
+    width: 3.8rem;
+  }

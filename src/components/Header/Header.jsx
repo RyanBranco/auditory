@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 const Header = () => {
     return (
         <div className="header-expanded" id={styles.Header}>
-            <span><img src={Logo} alt="auditory logo" className="small-icon"></img></span>
+            <span><img src={Logo} alt="auditory logo" className={styles.smallIcon}></img></span>
             <span id={styles.search}>
                 <input placeholder="Search"></input>
             </span>
