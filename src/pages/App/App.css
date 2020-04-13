@@ -4,7 +4,7 @@
 }
 
 .expanded-side-bar {
-  width: 24%;
+  width: 21%;
 }
 
 .contracted-side-bar {
@@ -16,7 +16,7 @@
 }
 
 .contracted-main {
-  width: 76%;
+  width: 79%;
 }
 
 .switch {
@@ -29,6 +29,6 @@
 }
 
 p {
-  font-size: 1.3vw;
+  font-size: 1.5rem;
   margin: 0;
 }

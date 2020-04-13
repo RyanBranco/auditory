@@ -12,8 +12,10 @@ const fileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    fileId: String,
-    thumbnail: String,
+    audioFileId: String,
+    thumbnailFileId: String,
+    description: String,
+    category: String,
     user: {
         type: Schema.Types.ObjectId, 
         ref: "User"
