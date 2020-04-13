@@ -1,4 +1,5 @@
 #UploadPage {
+    overflow: hidden;
     float: right;
     display: flex;
     flex-direction: column;
@@ -14,15 +15,14 @@
     color: white;
     margin-top: 1rem;
     margin-left: 3rem;
+    margin-bottom: 0;
 }
 
 #dragAndDrop {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    padding: 1rem;
-    width: 100%;
     height: 7rem;
     background-color: #292929;
     border: 1px solid #F49E10;
@@ -64,9 +64,12 @@
 }
 
 .subDiv input {
-    margin-top: 2.8rem;
     float: right;
+}
+
+#title {
     width: 65%;
+    margin-top: 2.6rem;
 }
 
 #thumbnailDiv {
@@ -78,7 +81,7 @@
 }
 
 #thumbnailBox {
-    padding: .4rem;
+    overflow: hidden;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-top: 1.6rem;
@@ -89,7 +92,7 @@
 }
 
 #thumbnailBox p {
-    margin-top: .1rem;
+    overflow: hidden;
     font-size: 1.1rem;
 }
 
@@ -100,29 +103,33 @@
 }
 
 #detailsH5 {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
 
 #cloud {
+    margin-top: 1rem;
     font-size:48px;
     color: white;
 }
 
 #thumbnailImage {
+    margin-top: .5rem;
+    margin-left: 2.8rem;
+    position: absolute;
     font-size: 24px;
 }
 
 #descriptionBox {
     color: white;
     width: 100%;
-    height: 7rem;
+    height: 10rem;
     border: 1px solid white;
     background-color: transparent;
     border-radius: 3px;
+    resize: none;
 }
 
 #category {
-    margin-top: 2rem;
     height: 1.5rem;
     width: 7rem;
     display: inline-block;
@@ -132,9 +139,30 @@
     width: 100%;
 }
 
+#bottomForm label {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: .4rem;
+    display: block;
+}
+
 #submitButton {
     color: black;
     float: right;
     margin-right: 0;
-    margin-top: 2.06rem;
+}
+
+#audioInput {
+    width: 50%;
+}
+
+#thumbnailInput {
+    margin-left: 1.8rem;
+    height: 4rem;
+}
+
+#thumbnailText {
+    margin-top: 2.3rem;
+    margin-left: 1.35rem;
+    position: absolute;
 }
