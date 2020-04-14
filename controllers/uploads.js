@@ -13,7 +13,6 @@ let s3bucket = new AWS.S3({
 });
 
 function postUpload(req, res) {
-    console.log("req.file: ", req.file)
     const file = req.file;
     
     const params = {
@@ -32,7 +31,6 @@ function postUpload(req, res) {
 }
 
 function createUpload(req, res) {
-    console.log("req.body: ", req.body)
     const upload = new Upload(req.body);
     upload.save((err, upload) => {
         if (err) console.log(err)

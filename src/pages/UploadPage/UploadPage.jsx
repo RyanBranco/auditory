@@ -3,6 +3,7 @@ import styles from "./UploadPage.module.css";
 
 const axios = require("axios");
 let newId;
+let message;
 
 class UploadPage extends Component {
     constructor() {
@@ -49,8 +50,20 @@ class UploadPage extends Component {
             [e.target.name]: e.target.files[0]
         })
     };
-    
+
+    giveMessage(newMessage) {
+        if (newMessage === ".mp3 or .wav files only") {
+            message = <p id={styles.uploadMessage} className={styles.error}>{newMessage}</p>
+            return
+        } else {
+            message = <p id={styles.uploadMessage} className={styles.success}>{newMessage}</p>
+        }
+    }
+
     handleSubmit(e){
+        const getExtention = function(fileName) {
+            return fileName.split('.').pop();
+        }
         newId = this.changeFilename(this.state.audioFile.name)
         e.preventDefault();
         const formData = new FormData();
@@ -60,19 +73,21 @@ class UploadPage extends Component {
                 'content-type': 'multipart/form-data'
             }
         };
+        let audioFileLowered = this.state.audioFile.name.toLowerCase();
+        if (getExtention(audioFileLowered) !== "wav" || getExtention(audioFileLowered) !== "mp3") {
+            this.giveMessage(".mp3 or .wav files only")
+        }
         axios.post("/api/uploads/upload", formData, config);
         this.matchAudioFileNames(newId)
     }
 
     sendBody() {
+        this.giveMessage("successfully uploaded")
         return fetch('/api/uploads/createUpload', {
             method: 'POST',
             headers: new Headers({'Content-Type': 'application/json'}),
             body: JSON.stringify(this.state)
-          })
-          .then(res => {
-            if (res.ok) return res.json();
-          })
+        })
     }
 
     render() {
@@ -109,7 +124,7 @@ class UploadPage extends Component {
                                         <option value="smalltalk">small talk</option>
                                     </select>
                                     <button type="submit" id={styles.submitButton}>upload</button>
-                                    <button onClick={() => this.testing()}>check state</button>
+                                    {message}
                                 </div>
                             </div>
                         </div>

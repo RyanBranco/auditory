@@ -7,10 +7,6 @@
     background-color: #2e2e2e;
 }
 
-#UploadPage p {
-    color: white;
-}
-
 #UploadPage h4 {
     color: white;
     margin-top: 1rem;
@@ -46,7 +42,7 @@
 
 .subDivAudio h5 {
     padding-bottom: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     width: 100%;
     border-bottom: 1px solid white;
     color: white;
@@ -100,10 +96,6 @@
     margin: auto;
     width: 72%;
     margin-top: 2.5rem;
-}
-
-#detailsH5 {
-    margin-top: 1.5rem;
 }
 
 #cloud {
@@ -170,4 +162,16 @@
     margin-top: 2.3rem;
     margin-left: 1.35rem;
     position: absolute;
+}
+
+#uploadMessage {
+    font-size: 1.3rem;
+    text-align: end;
+}
+.success {
+    color: #0dbc79;
+}
+
+.error {
+    color: #d12413
 }
