@@ -6,6 +6,6 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 router.post("/upload", upload.single("audioFile"), uploadCtrl.postUpload);
-router.post("/createUploadModel", uploadCtrl.createUploadModel);
+router.post("/createUpload", uploadCtrl.createUpload);
 
 module.exports = router;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./UploadPage.module.css";
 
 const axios = require("axios");
+let newId;
 
 class UploadPage extends Component {
     constructor() {
@@ -18,6 +19,25 @@ class UploadPage extends Component {
         this.handleSelectedFile = this.handleSelectedFile.bind(this);
     }
 
+    changeFilename(fileName) {
+        const ID = function() {
+            return '_' + Math.random().toString(36).substr(2, 9);
+        }; 
+    
+        const getExtention = function(fileName) {
+            return fileName.split('.').pop();
+        }
+    
+        return ID() + "." + getExtention(fileName)
+    }
+
+    async matchAudioFileNames(newId) {
+        await this.setState({
+            audioFile: newId
+        })
+        this.sendBody()
+    }
+
     handleChange = (e) => {
         this.setState({
           [e.target.name]: e.target.value
@@ -25,31 +45,27 @@ class UploadPage extends Component {
     }
 
     handleSelectedFile = e => {
-        e.preventDefault();
         this.setState({
-          [e.target.name]: e.target.files[0]
-        });
+            [e.target.name]: e.target.files[0]
+        })
     };
-
+    
     handleSubmit(e){
+        newId = this.changeFilename(this.state.audioFile.name)
         e.preventDefault();
         const formData = new FormData();
-        formData.append("audioFile", this.state.audioFile);
+        formData.append("audioFile", this.state.audioFile, newId);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
             }
         };
-        axios.post("/api/uploads/upload", formData, config)
-            .then((response) => {
-                alert("The file is successfully uploaded");
-            }).catch((error) => {
-        });
-        this.sendBody()
+        axios.post("/api/uploads/upload", formData, config);
+        this.matchAudioFileNames(newId)
     }
 
     sendBody() {
-        return fetch('/api/uploads/createUploadModel', {
+        return fetch('/api/uploads/createUpload', {
             method: 'POST',
             headers: new Headers({'Content-Type': 'application/json'}),
             body: JSON.stringify(this.state)
@@ -58,21 +74,6 @@ class UploadPage extends Component {
             if (res.ok) return res.json();
           })
     }
-
-    // uploadThumbnail() {
-    //     const formData = new FormData();
-    //     formData.append("thumbnailFile", this.state.thumbnailFile);
-    //     const config = {
-    //         headers: {
-    //             'content-type': 'multipart/form-data'
-    //         }
-    //     };
-    //     axios.post("/api/uploads/upload", formData, config)
-    //         .then((response) => {
-    //             alert("The file is successfully uploaded");
-    //         }).catch((error) => {
-    //     });
-    // }
 
     render() {
         return (
@@ -85,7 +86,6 @@ class UploadPage extends Component {
                             <div className={styles.subDiv}>
                                 <div id={styles.dragAndDrop}>
                                     <i className="fa fa-cloud-upload" id={styles.cloud}></i>
-                                    <label htmlFor="audioFile"></label>
                                     <input type="file" name="audioFile" id={styles.audioInput} onChange={this.handleSelectedFile} ></input>
                                 </div>
                                 <div id={styles.thumbnailDiv}>
@@ -109,6 +109,7 @@ class UploadPage extends Component {
                                         <option value="smalltalk">small talk</option>
                                     </select>
                                     <button type="submit" id={styles.submitButton}>upload</button>
+                                    <button onClick={() => this.testing()}>check state</button>
                                 </div>
                             </div>
                         </div>

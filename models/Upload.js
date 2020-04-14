@@ -13,8 +13,12 @@ const fileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    audioFile: String,
-    thumbnailFile: String,
+    audioFile: {
+        type: Schema.Types.Mixed
+    },
+    thumbnailFile: {
+        type: Schema.Types.Mixed
+    },
     description: String,
     category: String,
     user: {
