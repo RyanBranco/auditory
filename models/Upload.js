@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     user: {type: Schema.Types.Mixed},
@@ -13,9 +14,7 @@ const fileSchema = new mongoose.Schema({
         required: true
     },
     audioFile: String,
-    audioFileId: String,
     thumbnailFile: String,
-    thumbnailFileId: String,
     description: String,
     category: String,
     user: {
