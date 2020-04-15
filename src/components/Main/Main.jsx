@@ -9,6 +9,18 @@ const Main = () => {
             <Header />
             <div id={styles.innerMain}>
                 <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
+                <AudioCard />
             </div>
         </div>
     )

@@ -19,9 +19,8 @@ class AudioCard extends Component {
                     <p id={styles.title}>This is where the title will go</p>
                     <p id={styles.username}>by (username will go here)</p>
                     <div id={styles.icons}>
-                        <i id={styles.AudioCardControls} className="material-icons">thumb_up</i>
-                        <i id={styles.AudioCardControls} className="material-icons">thumb_down</i>
-                        <i id={styles.AudioCardControls} className="material-icons">chat</i>
+                        <i id={styles.LikeButton} className="material-icons">thumb_up</i>
+                        <i id={styles.DislikeButton} className="material-icons">thumb_down</i>
                     </div>
                 </div>
                 <div id={styles.controller}>
@@ -29,6 +28,7 @@ class AudioCard extends Component {
                         <source src="horse.mp3" type="audio/mpeg"></source>
                     </audio>
                 </div>
+                <i id={styles.CommentButton} className="material-icons">chat</i>
             </div>
         )
     }
