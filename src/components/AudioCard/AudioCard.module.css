@@ -1,0 +1,42 @@
+#AudioCard {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #424242;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    color: white;
+    width: 90%;
+}
+
+#AudioCard img {
+    width: 110px;
+}
+
+#title {
+    font-size: 1.4rem;
+    position: absolute;
+    width: 50%;
+    margin-left: 1.3rem;
+    display: inline-block;
+}
+
+#AudioCard audio {
+    background-color: #f1f3f4;
+    border: 1px solid #f1f3f4;
+    border-radius: 2px;
+    margin-left: 1.3rem;
+    margin-bottom: 3.2rem;
+    width: 70%;
+    height: 2rem;
+}
+
+#AudioCard hr {
+    width: 99%;
+}
+
+#username {
+    display: inline-block;
+}
