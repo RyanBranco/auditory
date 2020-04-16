@@ -18,7 +18,7 @@ class AudioCard extends Component {
                 <i id="options" className="material-icons">more_vert</i>
                 <img src={placeholder} alt="placeholder"></img>
                 <div id="cardContents">
-                    <p id="title">{this.props.upload.title}</p>
+                    <p id="cardTitle">{this.props.upload.title}</p>
                     <p id="username">by {this.props.upload.user}</p>
                     <div id="icons">
                         <i id="LikeButton" className="material-icons">thumb_up</i>
