@@ -1,12 +1,12 @@
 import React from "react";
 import Logo from "../../images/auditorylogodarkmode.png"
-import styles from "./Header.module.css";
+import "./Header.css";
 
 const Header = () => {
     return (
-        <div className="header-expanded" id={styles.Header}>
-            <span><img src={Logo} alt="auditory logo" className={styles.smallIcon}></img></span>
-            <span id={styles.search}>
+        <div className="header-expanded" id="Header">
+            <span><img src={Logo} alt="auditory logo" className="smallIcon"></img></span>
+            <span id="search">
                 <input placeholder="Search"></input>
             </span>
             <div className="switch">
@@ -14,7 +14,7 @@ const Header = () => {
                     <span><i className="material-icons">wb_sunny</i></span>
                     <input type="checkbox"></input>
                     <span className="lever"></span>
-                    <span className={styles.icon}>&#9790;</span>
+                    <span className="icon">&#9790;</span>
                 </label>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import SignupForm from '../../components/SignupForm/SignupForm';
-import styles from "./SignupPage.module.css";
+import "./SignupPage.css";
 import Logo from "../../images/auditorylogodarkmodewithtext.png"
 
 class SignupPage extends Component {
@@ -17,11 +17,11 @@ class SignupPage extends Component {
 
     render() {
         return (
-            <div id={styles.signup}>
+            <div id="signup">
                 <header>sign up</header>
-                <img id={styles.SignupLogo} src={Logo} alt="dark mode logo"></img>
+                <img id="SignupLogo" src={Logo} alt="dark mode logo"></img>
                 <SignupForm {...this.props} updateMessage={this.updateMessage} />
-                <div id={styles.errormessage}>
+                <div id="errormessage">
                     <p>{this.state.message}</p>
                 </div>
             </div>

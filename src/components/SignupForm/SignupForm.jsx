@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import userService from '../../utils/userService';
 import { Link } from "react-router-dom";
-import styles from "./SignupForm.module.css"
+import "./SignupForm.css"
 
 class SignupForm extends Component {
   
@@ -39,7 +39,7 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div id={styles.SignUpForm}>
+      <div id="SignUpForm">
         <form onSubmit={this.handleSubmit}>
           <div>
             <div>

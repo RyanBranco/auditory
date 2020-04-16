@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./SideBarContent.module.css";
+import "./SideBarContent.css";
 
 const SideBarContent = (props) => {
     let sideBar = props.user ?
         <div>
             <Link to="/"><p>home</p></Link>
             <Link to="/upload"><p>upload</p></Link>
-            <Link id={styles.SideBarContent} to='' onClick={props.handleLogout}><p>logout</p></Link>
+            <Link id="SideBarContent" to='' onClick={props.handleLogout}><p>logout</p></Link>
         </div>
         :
-        <div id={styles.LoginSideBar}>
+        <div id="LoginSideBar">
             <p>You must log-in to access</p>
             <p>user features: 
             <Link to="/login"> log-in</Link></p>

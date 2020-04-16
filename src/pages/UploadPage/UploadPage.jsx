@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./UploadPage.module.css";
+import "./UploadPage.css";
 
 const axios = require("axios");
 let newId;
@@ -54,10 +54,10 @@ class UploadPage extends Component {
 
     giveMessage(newMessage) {
         if (newMessage === ".mp3 or .wav files only") {
-            message = <p id={styles.uploadMessage} className={styles.error}>{newMessage}</p>
+            message = <p id="uploadMessage" className="error">{newMessage}</p>
             return
         } else {
-            message = <p id={styles.uploadMessage} className={styles.success}>{newMessage}</p>
+            message = <p id="uploadMessage" className="success">{newMessage}</p>
         }
     }
 
@@ -101,38 +101,38 @@ class UploadPage extends Component {
 
     render() {
         return (
-            <div id={styles.UploadPage} className="contracted-main">
+            <div id="UploadPage" className="contracted-main">
             <h4>upload</h4>
                 <form onSubmit={this.handleSubmit}>
-                    <div id={styles.UploadFormContainer}>
-                        <div className={styles.subDivAudio}>
+                    <div id="UploadFormContainer">
+                        <div className="subDivAudio">
                             <h5>audio file</h5>
-                            <div className={styles.subDiv}>
-                                <div id={styles.dragAndDrop}>
-                                    <i className="fa fa-cloud-upload" id={styles.cloud}></i>
-                                    <input type="file" name="audioFile" id={styles.audioInput} onChange={this.handleSelectedFile} ></input>
+                            <div className="subDiv">
+                                <div id="dragAndDrop">
+                                    <i className="fa fa-cloud-upload" id="cloud"></i>
+                                    <input type="file" name="audioFile" id="audioInput" onChange={this.handleSelectedFile} ></input>
                                 </div>
-                                <div id={styles.thumbnailDiv}>
-                                    <div id={styles.thumbnailBox}>
-                                        <input type="file" name="thumbnailFile" id={styles.thumbnailInput} onChange={this.handleSelectedFile} />
-                                        <i className="fa fa-camera" id={styles.thumbnailImage}></i>
-                                        <p id={styles.thumbnailText}>thumbnail</p>
+                                <div id="thumbnailDiv">
+                                    <div id="thumbnailBox">
+                                        <input type="file" name="thumbnailFile" id="thumbnailInput" onChange={this.handleSelectedFile} />
+                                        <i className="fa fa-camera" id="thumbnailImage"></i>
+                                        <p id="thumbnailText">thumbnail</p>
                                     </div>
                                 </div>
-                                <input placeholder="insert title" name="title" id={styles.title} onChange={this.handleChange} ></input>
+                                <input placeholder="insert title" name="title" id="title" onChange={this.handleChange} ></input>
                             </div>
-                            <h5 id={styles.detailsH5}>details</h5>
-                            <div id={styles.SubSubDiv}>
-                                <textarea placeholder="description..." id={styles.descriptionBox} name="description" onChange={this.handleChange} ></textarea>
-                                <div id={styles.bottomForm}>
+                            <h5 id="detailsH5">details</h5>
+                            <div id="SubSubDiv">
+                                <textarea placeholder="description..." id="descriptionBox" name="description" onChange={this.handleChange} ></textarea>
+                                <div id="bottomForm">
                                     <label>category</label>
-                                    <select id={styles.category} name="category" onChange={this.handleChange} >
+                                    <select id="category" name="category" onChange={this.handleChange} >
                                         <option value="other">other</option>
                                         <option value="music">music</option>
                                         <option value="podcast">podcast</option>
                                         <option value="smalltalk">small talk</option>
                                     </select>
-                                    <button type="submit" id={styles.submitButton}>upload</button>
+                                    <button type="submit" id="submitButton">upload</button>
                                     {message}
                                 </div>
                             </div>

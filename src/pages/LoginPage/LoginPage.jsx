@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import Logo from "../../images/auditorylogodarkmodewithtext.png"
-// import styles from "./LoginPage.module.css";
+import "./LoginPage.css";
 
 class LoginPage extends Component {
   state = {
@@ -34,8 +34,8 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div /*id={styles.LoginPage}*/>
-        <img /*id={styles.LoginPageImg}*/ src={Logo} alt="dark mode logo"></img>
+      <div id="LoginPage">
+        <img id="LoginPageImg" src={Logo} alt="dark mode logo"></img>
         <form onSubmit={this.handleSubmit} >
           <div>
             <div>

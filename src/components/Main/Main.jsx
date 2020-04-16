@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "../Header/Header";
 import AudioCard from "../AudioCard/AudioCard";
-import styles from "./Main.module.css";
+import "./Main.css";
 
 const Main = (props) => (
-    <div id={styles.Main} className="contracted-main">
+    <div id="Main" className="contracted-main">
         <Header />
-        <div id={styles.innerMain}>
+        <div id="innerMain">
            {props.uploads.map((upload, idx) => 
             <AudioCard
                 key={upload._id}
