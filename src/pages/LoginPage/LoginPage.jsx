@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import Logo from "../../images/auditorylogodarkmodewithtext.png"
-import styles from "../LoginPage/LoginPage.module.css";
+import styles from "../../../src/pages/LoginPage/LoginPage.module.css";
 
 class LoginPage extends Component {
   state = {
