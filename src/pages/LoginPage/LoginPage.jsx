@@ -51,7 +51,7 @@ class LoginPage extends Component {
             <div>
               <button>log in</button>
               <Link to='/'>cancel</Link>
-              <p id={styles.errormessage}>{this.state.error}</p>
+              <p>{this.state.error}</p>
             </div>
           </div>
         </form>
