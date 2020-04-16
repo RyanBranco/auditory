@@ -2,6 +2,7 @@ const Upload = require('../models/Upload');
 const AWS = require("aws-sdk");
 
 module.exports = {
+    getUploads,
     postUpload,
     createUpload
 };
@@ -12,7 +13,13 @@ let s3bucket = new AWS.S3({
     region: process.env.AWS_REGION
 });
 
+async function getUploads(req, res) {
+    const uploads = await Upload.find({});
+    res.status(200).json(uploads);
+}
+
 function postUpload(req, res) {
+    console.log("file: ", req.file)
     const file = req.file;
     
     const params = {
@@ -31,6 +38,7 @@ function postUpload(req, res) {
 }
 
 function createUpload(req, res) {
+    console.log("model: ", req.body)
     const upload = new Upload(req.body);
     upload.save((err, upload) => {
         if (err) console.log(err)

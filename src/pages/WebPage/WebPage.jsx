@@ -14,11 +14,14 @@ const WebPage = (props) => {
             <Switch>
                 <Route exact path="/" render={() =>
                     <Main
+                        uploads={props.uploads}
                         user={props.user}
                     />
                 }/>
                 <Route exact path="/upload" render={() => 
-                    <UploadPage />
+                    <UploadPage
+                        user={props.user}
+                    />
                 }/> 
             </Switch>
         </div>

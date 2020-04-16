@@ -6,14 +6,15 @@ let newId;
 let message;
 
 class UploadPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: "",
             audioFile: null,
             thumbnailFile: null,
             description: "",
             category: "",
+            user: this.props.user._id
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -74,7 +75,9 @@ class UploadPage extends Component {
             }
         };
         let audioFileLowered = this.state.audioFile.name.toLowerCase();
-        if (getExtention(audioFileLowered) !== "wav" || getExtention(audioFileLowered) !== "mp3") {
+        if (getExtention(audioFileLowered) === "wav" || getExtention(audioFileLowered) === "mp3") {
+            this.giveMessage("upload successful")
+        } else {
             this.giveMessage(".mp3 or .wav files only")
         }
         axios.post("/api/uploads/upload", formData, config);
@@ -82,11 +85,17 @@ class UploadPage extends Component {
     }
 
     sendBody() {
-        this.giveMessage("successfully uploaded")
         return fetch('/api/uploads/createUpload', {
             method: 'POST',
             headers: new Headers({'Content-Type': 'application/json'}),
             body: JSON.stringify(this.state)
+        }).then(this.reset())
+    }
+
+    reset() {
+        this.setState({
+            audioFile: null,
+            thumbnailFile: null
         })
     }
 

@@ -4,14 +4,13 @@ import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import WebPage from "../WebPage/WebPage";
 import userService from '../../utils/userService';
+import * as uploadsAPI from '../../services/uploads-api';
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: userService.getUser()
-    }
+  state = {
+    user: userService.getUser(),
+    uploads: []
   }
 
   handleSignupOrLogin = () => {
@@ -21,6 +20,11 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
+  }
+
+  async componentDidMount() {
+    const uploads = await uploadsAPI.getUploads();
+    this.setState({ uploads });
   }
 
   render() {
@@ -40,6 +44,7 @@ class App extends Component {
             />
           }/>
           <WebPage
+            uploads={this.state.uploads}
             handleLogout={this.handleLogout}
             user={this.state.user}
           />
