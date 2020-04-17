@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect, useLocation } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import WebPage from "../WebPage/WebPage";
@@ -25,7 +25,6 @@ class App extends Component {
   }
 
   handleUploadDelete= async id => {
-    const { redirect } = this.state;
     await uploadsAPI.deleteOne(id);
     this.setState(state => ({
       userUploads: state.userUploads.filter(p => p._id !== id),

@@ -15,14 +15,16 @@ class AudioCard extends Component {
     render() {
         return (
             <div id="AudioCard">
-                <i id="options" className="material-icons">more_vert</i>
-                <img src={placeholder} alt="placeholder"></img>
-                <div id="cardContents">
-                    <p id="cardTitle">{this.props.upload.title}</p>
-                    <p id="username">by {this.props.upload.user.userName}</p>
-                    <div id="icons">
-                        <i id="LikeButton" className="material-icons">thumb_up</i>
-                        <i id="DislikeButton" className="material-icons">thumb_down</i>
+                <div id="AudioCardUpperContent">
+                    <i id="options" className="material-icons">more_vert</i>
+                    <img src={placeholder} alt="placeholder"></img>
+                    <div id="cardContents">
+                        <p id="cardTitle">{this.props.upload.title}</p>
+                        <p id="username">by {this.props.upload.user.userName}</p>
+                        <div id="icons">
+                            <i id="LikeButton" className="material-icons">thumb_up</i>
+                            <i id="DislikeButton" className="material-icons">thumb_down</i>
+                        </div>
                     </div>
                 </div>
                 <div id="controller">
@@ -30,7 +32,7 @@ class AudioCard extends Component {
                         <source src={awsURL + this.props.upload.audioFile} type="audio/mpeg"></source>
                     </audio>
                 </div>
-                <i id="CommentButton" className="material-icons">chat</i>
+                {/* <i id="CommentButton" className="material-icons">chat</i> */}
             </div>
         )
     }

@@ -2,8 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
-    padding: 1rem;
-    padding-bottom: .7rem;
+    padding-bottom: 0;
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #424242;
     margin-top: 1.6rem;
@@ -12,13 +11,18 @@
     width: 90%;
 }
 
+#AudioCardUpperContent {
+    padding: 1rem;
+}
+
 #AudioCard audio {
+    background-color: white;
     outline: none;
-    margin-top: .7rem;
     display: inline-block;
     border-radius: 2px;
     width: 100%;
     height: 1.5rem;
+    border: 1px solid white;
 }
 
 #AudioCard img {
@@ -39,7 +43,7 @@
 
 #controller {
     display: inline-block;
-    width: 95%;
+    width: 100%;
 }
 
 #icons {
@@ -53,13 +57,13 @@
 }
 
 #LikeButton {
-    color: #1c994c;
+    color: #2fbd47;
     margin-top: .1rem;
     margin-right: 2rem;
 }
 
 #DislikeButton {
-    color: #b8272b;
+    color: #fd415a;
     margin-top: .1rem;
     margin-right: 2rem;
 }
