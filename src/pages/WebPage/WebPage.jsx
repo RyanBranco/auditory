@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar";
 import Main from "../../components/Main/Main";
 import UploadPage from "../UploadPage/UploadPage";
@@ -19,8 +19,9 @@ const WebPage = (props) => {
                         user={props.user}
                     />
                 }/>
-                <Route exact path="/upload" render={() => 
+                <Route exact path="/upload" render={({ history }) => 
                     <UploadPage
+                        history={history}
                         user={props.user}
                     />
                 }/> 

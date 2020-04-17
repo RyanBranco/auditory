@@ -13,7 +13,7 @@ class UploadPage extends Component {
             audioFile: null,
             thumbnailFile: null,
             description: "",
-            category: "",
+            category: "other",
             user: this.props.user._id
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -121,7 +121,6 @@ class UploadPage extends Component {
                                 </div>
                                 <input placeholder="insert title" name="title" id="title" onChange={this.handleChange} ></input>
                             </div>
-                            <h5 id="detailsH5">details</h5>
                             <div id="SubSubDiv">
                                 <textarea placeholder="description..." id="descriptionBox" name="description" onChange={this.handleChange} ></textarea>
                                 <div id="bottomForm">

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import LoginPage from "../LoginPage/LoginPage";
 import SignupPage from "../SignupPage/SignupPage";
 import WebPage from "../WebPage/WebPage";
@@ -10,6 +10,7 @@ import "./App.css";
 class App extends Component {
   state = {
     user: userService.getUser(),
+    redirect: false,
     uploads: [],
     userUploads: []
   }
@@ -24,13 +25,24 @@ class App extends Component {
   }
 
   handleUploadDelete= async id => {
+    const { redirect } = this.state;
     await uploadsAPI.deleteOne(id);
     this.setState(state => ({
-      userUploads: state.userUploads.filter(p => p._id !== id)
+      userUploads: state.userUploads.filter(p => p._id !== id),
+      uploads: state.uploads.filter(p => p._id !== id)
     }), () => this.props.history.push('/'));
   }
 
   async componentDidMount() {
+    const uploads = await uploadsAPI.getUploads();
+    const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
+    this.setState({
+      uploads,
+      userUploads
+    });
+  }
+
+  async componentDidUpdate() {
     const uploads = await uploadsAPI.getUploads();
     const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
     this.setState({
@@ -55,13 +67,16 @@ class App extends Component {
               history={history}
             />
           }/>
-          <WebPage
-            handleUploadDelete={this.handleUploadDelete}
-            userUploads={this.state.userUploads}
-            uploads={this.state.uploads}
-            handleLogout={this.handleLogout}
-            user={this.state.user}
-          />
+          <Route path="/" render={({ history }) => 
+                    <WebPage
+                    history={history}
+                    handleUploadDelete={this.handleUploadDelete}
+                    userUploads={this.state.userUploads}
+                    uploads={this.state.uploads}
+                    handleLogout={this.handleLogout}
+                    user={this.state.user}
+                  />
+          }/>
         </Switch>
       </div>
     );
