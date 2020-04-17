@@ -13,7 +13,7 @@
 }
 
 #AudioCard audio {
-    color: green;
+    outline: none;
     margin-top: .7rem;
     display: inline-block;
     border-radius: 2px;
@@ -65,7 +65,7 @@
 }
 
 #CommentButton {
-    color: #51c8ed;
+    color: white;
     margin-top: .1rem;
     float: right;
 }

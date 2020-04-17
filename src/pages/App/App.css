@@ -1,3 +1,7 @@
+body {
+  background-color: #2e2e2e;
+}
+
 #App {
   background-color: #212121;
   height: 100vh;
@@ -30,4 +34,10 @@
 
 p {
   margin: 0;
+}
+
+.large-profile-pic {
+  position: absolute;
+  width: 7rem;
+  border-radius: 100px;
 }

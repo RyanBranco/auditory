@@ -2,6 +2,33 @@
     margin-top: 2rem;
 }
 
-#SideBarContent {
+#logout-button {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     color: #d12413;
+}
+
+.divider {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    width: 95%;
+    height: 1px;
+    background-color: #808080;
+}
+
+#SideBarContent {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+#middle {
+    margin-top: .5rem;
+}
+
+#bottom {
+    margin-bottom: 2rem;
+    position: fixed;
+    bottom: 0;
 }

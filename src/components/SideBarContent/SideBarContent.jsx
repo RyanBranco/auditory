@@ -4,10 +4,20 @@ import "./SideBarContent.css";
 
 const SideBarContent = (props) => {
     let sideBar = props.user ?
-        <div>
-            <Link to="/"><p>home</p></Link>
-            <Link to="/upload"><p>upload</p></Link>
-            <Link id="SideBarContent" to='' onClick={props.handleLogout}><p>logout</p></Link>
+        <div id="SideBarContent">
+            <div>     
+                <Link to="/"><p>home</p></Link>
+                <Link to="/upload"><p>upload</p></Link>
+                <div className="divider"></div>
+            </div>
+            <div id="middle">
+                <Link to="/profile/uploads"><p>profile</p></Link>
+            </div>
+            <div id="bottom">
+                <div className="divider"></div>
+                <Link to='/settings'><p>setttings</p></Link>
+                <Link to='' onClick={props.handleLogout} id="logout-button"><p>logout</p></Link>
+            </div>
         </div>
         :
         <div id="LoginSideBar">

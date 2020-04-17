@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import SideBar from "../../components/SideBar/SideBar";
 import Main from "../../components/Main/Main";
 import UploadPage from "../UploadPage/UploadPage";
+import ProfilePage from "../Profilepage/ProfilePage";
 
 const WebPage = (props) => {
     return(
@@ -23,6 +24,11 @@ const WebPage = (props) => {
                         user={props.user}
                     />
                 }/> 
+                <Route path="/profile" render={() =>
+                    <ProfilePage 
+                        user={props.user}
+                    />
+                } />
             </Switch>
         </div>
     )
