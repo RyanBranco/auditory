@@ -13,13 +13,15 @@ const ProfilePage = (props) => {
                 user={props.user}
             />
             <ProfileNav />
-            <Switch>
-                <Route path={`${path}/uploads`}>
-                    <ProfileUploads
-                        user={props.user}
-                    />
-                </Route>
-            </Switch>
+            <div id="bottom-div">
+                <Switch>
+                    <Route path={`${path}/uploads`}>
+                        <ProfileUploads
+                            user={props.user}
+                        />
+                    </Route>
+                </Switch>
+            </div>
         </div>
     )
 }

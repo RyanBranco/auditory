@@ -1,0 +1,41 @@
+.UploadListCard {
+    padding: 1rem;
+    width: 100%;
+    border-top: 1px solid #808080;
+}
+
+.UploadListCard img {
+    position: absolute;
+    border-radius: 3px;
+    width: 4rem;
+}
+
+.user-upload-stats {
+    margin-left: 5rem;
+    display: inline-block;
+    height: 2rem;
+}
+
+.user-upload-stats p {
+    margin-right: 1.5rem;
+    color: lightgrey;
+    display: inline-block;
+}
+
+.user-upload-title {
+    font-size: 1.4rem;
+    margin-left: 5rem;
+}
+
+.card-actions {
+    float: right;
+}
+
+.card-actions p {
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+#delete {
+    color: #cc0808;
+}

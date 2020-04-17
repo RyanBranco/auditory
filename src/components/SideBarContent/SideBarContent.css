@@ -12,7 +12,7 @@
 .divider {
     margin-top: .5rem;
     margin-bottom: .5rem;
-    width: 95%;
+    width: 9rem;
     height: 1px;
     background-color: #808080;
 }
@@ -21,6 +21,10 @@
     display: flex;
     flex-direction: column;
     align-content: space-between;
+}
+
+#SideBarContent p {
+    margin-bottom: .5rem;
 }
 
 #middle {

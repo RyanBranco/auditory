@@ -4,3 +4,11 @@
     height: 100vh;
     color: white;
 }
+
+#bottom-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    overflow: scroll;
+    height: 70vh;
+}
