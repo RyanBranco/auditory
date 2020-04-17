@@ -5,7 +5,8 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.get("/", uploadCtrl.getUploads)
+router.get("/", uploadCtrl.getUploads);
+router.get("/myuploads/:id", uploadCtrl.getUserUploads);
 router.post("/upload", upload.single("audioFile"), uploadCtrl.postUpload);
 router.post("/createUpload", uploadCtrl.createUpload);
 

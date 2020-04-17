@@ -28,6 +28,7 @@
 }
 
 .card-actions {
+    margin-top: 1rem;
     float: right;
 }
 
@@ -36,6 +37,12 @@
     display: inline-block;
 }
 
+#edit {
+    margin-right: 1rem;
+}
+
 #delete {
-    color: #cc0808;
+    cursor: pointer;
+    margin: auto;
+    color: #fd415a;
 }

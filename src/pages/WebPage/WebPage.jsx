@@ -26,6 +26,7 @@ const WebPage = (props) => {
                 }/> 
                 <Route path="/profile" render={() =>
                     <ProfilePage 
+                        userUploads={props.userUploads}
                         user={props.user}
                     />
                 } />

@@ -5,7 +5,12 @@ import "./ProfileUploads.css"
 const ProfileUploads = (props) => {
     return (
         <div id="profileSubDiv">
-            <UploadListCard />
+            {props.userUploads.map((upload) => 
+                <UploadListCard 
+                    upload={upload}
+                    key={upload._id}
+                />
+            )}
         </div>
     )
 }
