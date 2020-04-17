@@ -9,3 +9,9 @@ export function getUserUploads(userId) {
     return fetch(`${BASE_URL}/myuploads/${userId}`)
     .then(res => res.json())
 }
+
+export function deleteOne(id) {
+    return fetch(`${BASE_URL}/myuploads/${id}`, {
+      method: 'DELETE'
+    }).then(res => res.json());
+  }

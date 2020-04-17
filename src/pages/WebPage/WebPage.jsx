@@ -25,7 +25,8 @@ const WebPage = (props) => {
                     />
                 }/> 
                 <Route path="/profile" render={() =>
-                    <ProfilePage 
+                    <ProfilePage
+                        handleUploadDelete={props.handleUploadDelete}
                         userUploads={props.userUploads}
                         user={props.user}
                     />

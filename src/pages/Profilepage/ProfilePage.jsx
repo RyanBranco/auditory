@@ -17,6 +17,7 @@ const ProfilePage = (props) => {
                 <Switch>
                     <Route path={`${path}/uploads`}>
                         <ProfileUploads
+                        handleUploadDelete={props.handleUploadDelete}
                             userUploads={props.userUploads}
                             user={props.user}
                         />

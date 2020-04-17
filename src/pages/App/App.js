@@ -23,6 +23,13 @@ class App extends Component {
     this.setState({ user: null });
   }
 
+  handleUploadDelete= async id => {
+    await uploadsAPI.deleteOne(id);
+    this.setState(state => ({
+      userUploads: state.userUploads.filter(p => p._id !== id)
+    }), () => this.props.history.push('/'));
+  }
+
   async componentDidMount() {
     const uploads = await uploadsAPI.getUploads();
     const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
@@ -49,6 +56,7 @@ class App extends Component {
             />
           }/>
           <WebPage
+            handleUploadDelete={this.handleUploadDelete}
             userUploads={this.state.userUploads}
             uploads={this.state.uploads}
             handleLogout={this.handleLogout}

@@ -5,7 +5,8 @@ module.exports = {
     getUploads,
     getUserUploads,
     postUpload,
-    createUpload
+    createUpload,
+    delete: deleteOne
 };
 
 let s3bucket = new AWS.S3({
@@ -49,3 +50,8 @@ function createUpload(req, res) {
         if (err) console.log(err)
     })
 }
+
+async function deleteOne(req, res) {
+    const deletedUpload = await Upload.findByIdAndRemove(req.params.id);
+    res.status(200).json(deletedUpload);
+  }

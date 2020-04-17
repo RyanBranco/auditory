@@ -6,8 +6,10 @@ const ProfileUploads = (props) => {
     return (
         <div id="profileSubDiv">
             {props.userUploads.map((upload) => 
-                <UploadListCard 
+                <UploadListCard
+                    handleUploadDelete={props.handleUploadDelete}
                     upload={upload}
+                    uploadId={upload._id}
                     key={upload._id}
                 />
             )}
