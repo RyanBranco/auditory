@@ -29,7 +29,7 @@ class App extends Component {
     this.setState(state => ({
       userUploads: state.userUploads.filter(p => p._id !== id),
       uploads: state.uploads.filter(p => p._id !== id)
-    }), () => this.props.history.push('/'));
+    }));
   }
 
   async componentDidMount() {
