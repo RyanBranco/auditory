@@ -9,6 +9,7 @@
     float: left;
     border-radius: 3px;
     width: 4rem;
+    height: 4rem;
 }
 
 .user-upload-stats {
@@ -39,7 +40,7 @@
 
 #edit {
     cursor: pointer;
-    color: #039be5;
+    color: #2babc8;
     background-color: transparent;
     margin-right: 1rem;
     border: none;

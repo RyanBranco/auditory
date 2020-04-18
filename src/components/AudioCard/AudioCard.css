@@ -1,38 +1,39 @@
 #AudioCard {
+    height: 8rem;
     margin-left: auto;
     margin-right: auto;
     border-radius: 5px;
-    padding-bottom: 0;
     box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: #424242;
-    margin-top: 1.6rem;
-    margin-bottom: 2.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
     color: white;
     width: 90%;
 }
 
 #AudioCardUpperContent {
-    padding: 1rem;
+    padding-left: .4rem;
 }
 
 #AudioCard audio {
     background-color: white;
     outline: none;
     display: inline-block;
-    border-radius: 2px;
+    border-radius: 0px 0px 2px 2px;
     width: 100%;
     height: 1.5rem;
     border: 1px solid white;
 }
 
 #AudioCard img {
-    margin-top: .3rem;
+    margin-top: 1rem;
     border-radius: 3px;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 
 #cardContents {
+    margin-bottom: .6rem;
     width: 60%;
     margin-left: 1.3rem;
     display: inline-block;
@@ -42,14 +43,9 @@
     font-size: 1.4rem;
 }
 
-#controller {
-    display: inline-block;
-    width: 100%;
-}
-
 #icons {
     bottom: .4rem;
-    position: relative;
+    float: right;
 }
 
 #username {
@@ -77,4 +73,30 @@
 
 #options {
     float: right;
+}
+
+.category-color {
+    position: relative;
+    width: 100%;
+    height: .2rem;
+}
+
+.orange {
+    background-color: #f3a02b;
+}
+
+.cyan {
+    background-color: #52f2ea;
+}
+
+.yellow {
+    background-color: #f5eb54;
+}
+
+.lightpurple {
+    background-color: #642bf3;
+}
+
+.darkblue {
+    background-color: #000d9e;
 }

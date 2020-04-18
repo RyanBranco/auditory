@@ -1,13 +1,12 @@
 import React from "react";
-import placeholder from "../../images/placeholder-1-e1533569576673-960x960.png";
 import "./UploadListCard.css";
 
-
+let awsURL = "https://auditory-app.s3-us-west-1.amazonaws.com/"
 
 const UploadListCard = (props) => {
     return (
         <div className="UploadListCard">
-            <img src={placeholder} alt="thumbnail"></img>
+            <img src={awsURL + props.upload.thumbnailFile} alt="thumbnail"></img>
             <div className="card-actions">
                 <button id="edit">edit</button>
                 <i id="delete" className="material-icons" onClick={() => props.handleUploadDelete(props.uploadId)}>delete</i>

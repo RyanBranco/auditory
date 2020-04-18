@@ -137,6 +137,7 @@ class UploadPage extends Component {
                                         <option value="music">music</option>
                                         <option value="podcast">podcast</option>
                                         <option value="smalltalk">small talk</option>
+                                        <option value="asmr">asmr</option>
                                     </select>
                                     <button type="submit" id="submitButton">upload</button>
                                     {message}
