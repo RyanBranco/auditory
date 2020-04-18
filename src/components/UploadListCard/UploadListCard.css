@@ -38,7 +38,11 @@
 }
 
 #edit {
+    cursor: pointer;
+    color: #039be5;
+    background-color: transparent;
     margin-right: 1rem;
+    border: none;
 }
 
 #delete {

@@ -7,7 +7,9 @@ const SideBar = (props) => {
     return (
         <div id="SideBar" className="expanded-side-bar">
             <SideBarHeader />
-            <SideBarContent 
+            <SideBarContent
+                getSelected={props.getSelected}
+                selectedProfileUrl={props.selectedProfileUrl}
                 handleLogout={props.handleLogout}
                 user={props.user} 
             />

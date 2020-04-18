@@ -10,9 +10,9 @@ import "./App.css";
 class App extends Component {
   state = {
     user: userService.getUser(),
-    redirect: false,
     uploads: [],
-    userUploads: []
+    userUploads: [],
+    selectedProfileUrl: [] 
   }
 
   handleSignupOrLogin = () => {
@@ -24,7 +24,7 @@ class App extends Component {
     this.setState({ user: null });
   }
 
-  handleUploadDelete= async id => {
+  handleUploadDelete = async id => {
     await uploadsAPI.deleteOne(id);
     this.setState(state => ({
       userUploads: state.userUploads.filter(p => p._id !== id),
@@ -32,13 +32,24 @@ class App extends Component {
     }));
   }
 
+  getSelected = (idx) => {
+    let newArr = ["", "", "", "", ""]
+    newArr[idx] = "active"
+    this.setState({
+      selectedProfileUrl: newArr
+    })
+    return
+  }
+
   async componentDidMount() {
     const uploads = await uploadsAPI.getUploads();
-    const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
-    this.setState({
-      uploads,
-      userUploads
-    });
+    if (this.state.user) {
+      const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
+      this.setState({
+        uploads,
+        userUploads
+      });
+    }
   }
 
   async componentDidUpdate() {
@@ -49,7 +60,7 @@ class App extends Component {
       userUploads
     });
   }
-
+  
   render() {
     return (
       <div id="App">
@@ -68,6 +79,8 @@ class App extends Component {
           }/>
           <Route path="/" render={({ history }) => 
                     <WebPage
+                    getSelected={this.getSelected}
+                    selectedProfileUrl={this.state.selectedProfileUrl}
                     history={history}
                     handleUploadDelete={this.handleUploadDelete}
                     userUploads={this.state.userUploads}

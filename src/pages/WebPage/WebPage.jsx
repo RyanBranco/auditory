@@ -9,6 +9,8 @@ const WebPage = (props) => {
     return(
         <div>
             <SideBar
+                getSelected={props.getSelected}
+                selectedProfileUrl={props.selectedProfileUrl}
                 handleLogout={props.handleLogout}
                 user={props.user}
             />
@@ -27,6 +29,8 @@ const WebPage = (props) => {
                 }/> 
                 <Route path="/profile" render={() =>
                     <ProfilePage
+                        getSelected={props.getSelected}
+                        selectedProfileUrl={props.selectedProfileUrl}
                         handleUploadDelete={props.handleUploadDelete}
                         userUploads={props.userUploads}
                         user={props.user}

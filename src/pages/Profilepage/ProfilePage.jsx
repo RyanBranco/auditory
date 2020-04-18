@@ -12,7 +12,10 @@ const ProfilePage = (props) => {
             <UserProfileCard 
                 user={props.user}
             />
-            <ProfileNav />
+            <ProfileNav
+                getSelected={props.getSelected}
+                selectedProfileUrl={props.selectedProfileUrl}
+            />
             <div id="bottom-div">
                 <Switch>
                     <Route path={`${path}/uploads`}>
