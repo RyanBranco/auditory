@@ -21,7 +21,27 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String, 
         required: true
-    }
+    },
+    followers: {
+        type: Schema.Types.ObjectId, 
+        ref: "Upload"
+    },
+    following: {
+        type: Schema.Types.ObjectId, 
+        ref: "Upload"
+    },
+    liked: {
+        type: Schema.Types.ObjectId, 
+        ref: "Upload"
+    },
+    disliked: {
+        type: Schema.Types.ObjectId, 
+        ref: "Upload"
+    },
+    playlists: {
+        type: Schema.Types.ObjectId, 
+        ref: "Upload"
+    },
 }, {
     timestamps: true
 });

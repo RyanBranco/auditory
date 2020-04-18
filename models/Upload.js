@@ -25,6 +25,10 @@ const fileSchema = new mongoose.Schema({
         type: Schema.Types.ObjectId, 
         ref: "User"
     },
+    listens: {
+        type: Number,
+        default: 0
+    },
     likes: {
         type: Number, 
         defualt: 0
