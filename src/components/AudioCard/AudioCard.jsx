@@ -5,7 +5,6 @@ let awsURL = "https://auditory-app.s3-us-west-1.amazonaws.com/";
 let color;
 
 const AudioCard = (props) => {
-    console.log(props.upload)
     if (props.upload.category === "music") {
         color = "yellow"
     }

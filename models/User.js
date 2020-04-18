@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
+    avatar: {
+        type: Schema.Types.Mixed
+    },
+    description: {
+        type: String,
+        maxlength: 150,
+        default: "no description has been set"
+    },
     followers: {
         type: Schema.Types.ObjectId, 
         ref: "Upload"

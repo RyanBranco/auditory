@@ -46,7 +46,6 @@ function postUpload(req, res) {
 }
 
 function postThumbnailUpload(req, res) {
-    console.log(req.file)
     const file = req.file;
     
     const params = {

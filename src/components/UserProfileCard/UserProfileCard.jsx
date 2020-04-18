@@ -9,7 +9,7 @@ const UserProfileCard = (props) => {
             <div className="profile-pic-and-name">
                 <img className="large-profile-pic" src={placeholder} alt="large profile pic"></img>
                 <p className="profile-username">{props.user.userName}</p>
-                <p className="profile-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti perspiciatis veniam dolorum tenetur similique</p>
+                <p className="profile-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti perspiciatis veniam dolorum tenetur similique dfhdsfjaio foiajsdflj jf lsdjfl ldfjls</p>
             </div>
             <div className="profile-stats">
                 <p className="profile-stats-item">followers: 111</p>
