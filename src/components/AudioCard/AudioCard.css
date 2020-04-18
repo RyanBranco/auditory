@@ -12,7 +12,7 @@
 }
 
 #AudioCardUpperContent {
-    padding-left: .4rem;
+    padding-left: .5rem;
 }
 
 #AudioCard audio {
@@ -68,11 +68,11 @@
 #CommentButton {
     color: white;
     margin-top: .1rem;
-    float: right;
+    margin-right: 1.3rem;
 }
 
 #options {
-    float: right;
+    margin-right: .3rem;
 }
 
 .category-color {
@@ -94,7 +94,7 @@
 }
 
 .lightpurple {
-    background-color: #642bf3;
+    background-color: #a100ff;
 }
 
 .darkblue {

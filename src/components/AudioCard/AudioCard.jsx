@@ -25,7 +25,6 @@ const AudioCard = (props) => {
     return (
         <div id="AudioCard">
             <div id="AudioCardUpperContent">
-                <i id="options" className="material-icons">more_vert</i>
                 <img src={awsURL + props.upload.thumbnailFile} alt="audio upload thumbnail"></img>
                 <div id="cardContents">
                     <p id="cardTitle">{props.upload.title}</p>
@@ -34,6 +33,8 @@ const AudioCard = (props) => {
                     <div id="icons">
                         <i id="LikeButton" className="material-icons">thumb_up</i>
                         <i id="DislikeButton" className="material-icons">thumb_down</i>
+                        <i id="CommentButton" className="material-icons">chat</i>
+                        <i id="options" className="material-icons">more_vert</i>
                     </div>
             </div>
             <div id="controller">
@@ -42,7 +43,6 @@ const AudioCard = (props) => {
                     <source src={awsURL + props.upload.audioFile} type="audio/mpeg"></source>
                 </audio>
             </div>
-            {/* <i id="CommentButton" className="material-icons">chat</i> */}
         </div>
     )
 }
