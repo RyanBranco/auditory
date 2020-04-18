@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import "./AudioCard.css";
-import placeholder from "../../images/placeholder-1-e1533569576673-960x960.png";
 
 let awsURL = "https://auditory-app.s3-us-west-1.amazonaws.com/"
 
@@ -17,7 +16,7 @@ class AudioCard extends Component {
             <div id="AudioCard">
                 <div id="AudioCardUpperContent">
                     <i id="options" className="material-icons">more_vert</i>
-                    <img src={placeholder} alt="placeholder"></img>
+                    <img src={awsURL + this.props.upload.thumbnailFile} alt="audio upload thumbnail"></img>
                     <div id="cardContents">
                         <p id="cardTitle">{this.props.upload.title}</p>
                         <p id="username">by {this.props.upload.user.userName}</p>

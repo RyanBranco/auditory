@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SideBarContent.css";
 
+
+
 const SideBarContent = (props) => {
     let url = "/profile";
     let sideBar = props.user ?
         <div id="SideBarContent">
             <div>     
-                <Link to="/"><p>home</p></Link>
+                <Link to="/"><p onClick={() => props.componentDidMount()}>home</p></Link>
                 <Link to="/upload"><p>upload</p></Link>
                 <div className="divider"></div>
             </div>

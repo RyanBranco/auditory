@@ -5,6 +5,7 @@ module.exports = {
     getUploads,
     getUserUploads,
     postUpload,
+    postThumbnailUpload,
     createUpload,
     delete: deleteOne
 };
@@ -27,6 +28,25 @@ async function getUserUploads(req, res) {
 }
 
 function postUpload(req, res) {
+    const file = req.file;
+    
+    const params = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: file.originalname,
+        Body: file.buffer,
+        ContentType: file.mimetype,
+        ACL: "public-read"
+    };
+    
+    s3bucket.upload(params, function(err, data) {
+        if (err) {
+            res.status(500).json({ error: true, Message: err });
+        }
+    });
+}
+
+function postThumbnailUpload(req, res) {
+    console.log(req.file)
     const file = req.file;
     
     const params = {

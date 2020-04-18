@@ -38,10 +38,9 @@ class App extends Component {
     this.setState({
       selectedProfileUrl: newArr
     })
-    return
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     const uploads = await uploadsAPI.getUploads();
     if (this.state.user) {
       const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
@@ -50,15 +49,6 @@ class App extends Component {
         userUploads
       });
     }
-  }
-
-  async componentDidUpdate() {
-    const uploads = await uploadsAPI.getUploads();
-    const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
-    this.setState({
-      uploads,
-      userUploads
-    });
   }
   
   render() {
@@ -79,6 +69,7 @@ class App extends Component {
           }/>
           <Route path="/" render={({ history }) => 
                     <WebPage
+                    componentDidMount={this.componentDidMount}
                     getSelected={this.getSelected}
                     selectedProfileUrl={this.state.selectedProfileUrl}
                     history={history}

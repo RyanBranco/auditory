@@ -8,6 +8,7 @@ const SideBar = (props) => {
         <div id="SideBar" className="expanded-side-bar">
             <SideBarHeader />
             <SideBarContent
+                componentDidMount={props.componentDidMount}
                 getSelected={props.getSelected}
                 selectedProfileUrl={props.selectedProfileUrl}
                 handleLogout={props.handleLogout}

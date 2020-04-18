@@ -9,6 +9,7 @@ const WebPage = (props) => {
     return(
         <div>
             <SideBar
+                componentDidMount={props.componentDidMount}
                 getSelected={props.getSelected}
                 selectedProfileUrl={props.selectedProfileUrl}
                 handleLogout={props.handleLogout}

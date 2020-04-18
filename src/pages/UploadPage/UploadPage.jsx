@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./UploadPage.css";
 
 const axios = require("axios");
-let newId;
+let newAudioId;
+let newThumbnailId;
 let message;
 
 class UploadPage extends Component {
@@ -33,9 +34,10 @@ class UploadPage extends Component {
         return ID() + "." + getExtention(fileName)
     }
 
-    async matchAudioFileNames(newId) {
+    async matchAudioFileNames(newAudioId, newThumbnailId) {
         await this.setState({
-            audioFile: newId
+            audioFile: newAudioId,
+            thumbnailFile: newThumbnailId
         })
         this.sendBody()
     }
@@ -65,10 +67,11 @@ class UploadPage extends Component {
         const getExtention = function(fileName) {
             return fileName.split('.').pop();
         }
-        newId = this.changeFilename(this.state.audioFile.name)
+        newAudioId = this.changeFilename(this.state.audioFile.name)
+        newThumbnailId = this.changeFilename(this.state.thumbnailFile.name)
         e.preventDefault();
         const formData = new FormData();
-        formData.append("audioFile", this.state.audioFile, newId);
+        formData.append("audioFile", this.state.audioFile, newAudioId);
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
@@ -81,7 +84,11 @@ class UploadPage extends Component {
             this.giveMessage(".mp3 or .wav files only")
         }
         axios.post("/api/uploads/upload", formData, config);
-        this.matchAudioFileNames(newId)
+        this.matchAudioFileNames(newAudioId, newThumbnailId)
+        
+        const formDataThumbnail = new FormData();
+        formDataThumbnail.append("thumbnailFile", this.state.thumbnailFile, newThumbnailId);
+        axios.post("/api/uploads/upload/thumbnail", formDataThumbnail, config);
     }
 
     sendBody() {
