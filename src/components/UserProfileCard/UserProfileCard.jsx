@@ -124,11 +124,11 @@ class UserProfileCard extends Component {
                 <p className="profile-description">{this.props.loggedUser.description}</p>
             </div>
             <div className="profile-stats">
-                <p className="profile-stats-item">followers: 111</p>
-                <p className="profile-stats-item">following: 111</p>
-                <p className="profile-stats-item">liked: 111</p>
-                <p className="profile-stats-item">disliked: 111</p>
-                <p className="profile-stats-item">uploads: 111</p>
+                <p className="profile-stats-item">followers: 0</p>
+                <p className="profile-stats-item">following: 0</p>
+                <p className="profile-stats-item">liked: 0</p>
+                <p className="profile-stats-item">disliked: 0</p>
+                <p className="profile-stats-item">uploads: 0</p>
             </div>
         </div>
         return (

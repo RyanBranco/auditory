@@ -57,7 +57,7 @@ class UploadPage extends Component {
     giveMessage(newMessage) {
         if (newMessage === ".mp3 or .wav files only") {
             message = <p id="uploadMessage" className="error">{newMessage}</p>
-            return
+            return;
         } else {
             message = <p id="uploadMessage" className="success">{newMessage}</p>
         }
