@@ -2,6 +2,10 @@
     margin-top: 2rem;
 }
 
+#LoginSideBar p {
+    font-size: 1.3vw;
+}
+
 #logout-button {
     position: relative;
     margin-left: auto;

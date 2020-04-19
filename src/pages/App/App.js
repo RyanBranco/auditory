@@ -5,11 +5,13 @@ import SignupPage from "../SignupPage/SignupPage";
 import WebPage from "../WebPage/WebPage";
 import userService from '../../utils/userService';
 import * as uploadsAPI from '../../services/uploads-api';
+import * as usersAPI from "../../services/users-api";
 import "./App.css";
 
 class App extends Component {
   state = {
     user: userService.getUser(),
+    loggedUser: {},
     uploads: [],
     userUploads: [],
     selectedProfileUrl: [] 
@@ -44,9 +46,11 @@ class App extends Component {
     const uploads = await uploadsAPI.getUploads();
     if (this.state.user) {
       const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
+      const loggedUser = await usersAPI.getLoggedUser(this.state.user._id);
       this.setState({
         uploads,
-        userUploads
+        userUploads,
+        loggedUser
       });
     }
   }
@@ -78,6 +82,7 @@ class App extends Component {
                     uploads={this.state.uploads}
                     handleLogout={this.handleLogout}
                     user={this.state.user}
+                    loggedUser={this.state.loggedUser}
                   />
           }/>
         </Switch>

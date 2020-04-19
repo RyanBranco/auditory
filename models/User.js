@@ -24,7 +24,8 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     avatar: {
-        type: Schema.Types.Mixed
+        type: Schema.Types.Mixed,
+        default: ""
     },
     description: {
         type: String,

@@ -9,7 +9,9 @@ const ProfilePage = (props) => {
     let { path } = useRouteMatch();
     return (
         <div id="ProfilePage" className="contracted-main">
-            <UserProfileCard 
+            <UserProfileCard
+                loggedUser={props.loggedUser}
+                componentDidMount={props.componentDidMount}
                 user={props.user}
             />
             <ProfileNav

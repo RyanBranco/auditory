@@ -84,7 +84,7 @@ class UploadPage extends Component {
             this.giveMessage(".mp3 or .wav files only")
         }
         axios.post("/api/uploads/upload", formData, config);
-        this.matchAudioFileNames(newAudioId, newThumbnailId)
+        this.matchAudioFileNames(newAudioId, newThumbnailId);
         
         const formDataThumbnail = new FormData();
         formDataThumbnail.append("thumbnailFile", this.state.thumbnailFile, newThumbnailId);

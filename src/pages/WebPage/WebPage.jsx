@@ -30,6 +30,8 @@ const WebPage = (props) => {
                 }/> 
                 <Route path="/profile" render={() =>
                     <ProfilePage
+                        loggedUser={props.loggedUser}
+                        componentDidMount={props.componentDidMount}
                         getSelected={props.getSelected}
                         selectedProfileUrl={props.selectedProfileUrl}
                         handleUploadDelete={props.handleUploadDelete}

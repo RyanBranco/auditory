@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./SignupForm.css"
 
 class SignupForm extends Component {
-  
   state = {
     firstName: '',
     email: '',
