@@ -10,8 +10,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    user: userService.getUser(),
     loggedUser: {},
+    user: userService.getUser(),
     uploads: [],
     userUploads: [],
     selectedProfileUrl: [] 
@@ -43,10 +43,10 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+    const loggedUser = await usersAPI.getLoggedUser(this.state.user._id);
     const uploads = await uploadsAPI.getUploads();
     if (this.state.user) {
       const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
-      const loggedUser = await usersAPI.getLoggedUser(this.state.user._id);
       this.setState({
         uploads,
         userUploads,

@@ -15,10 +15,10 @@ const AudioCard = (props) => {
         color = "orange"
     }
     if (props.upload.category === "asmr") {
-        color = "lightpurple"
+        color = "pink"
     }
     if (props.upload.category === "other") {
-        color = "darkblue"
+        color = "lightpurple"
     }
 
     return (

@@ -6,7 +6,8 @@ const axios = require("axios");
 let profileEditMode = false;
 let awsURL = "https://auditory-app.s3-us-west-1.amazonaws.com/";
 let newAvatar;
-let userPic
+let userPic;
+let fileChanged = false;
 
 class UserProfileCard extends Component {
     constructor(props) {
@@ -36,7 +37,7 @@ class UserProfileCard extends Component {
         await this.setState({
             avatar: newAvatar,
         })
-        this.sendBody()
+        this.sendBody(true)
     }
 
     handleChange = (e) => {
@@ -49,41 +50,49 @@ class UserProfileCard extends Component {
         this.setState({
             [e.target.name]: e.target.files[0]
         })
+        fileChanged = true;
     };
         
     handleSubmit = async (e) => {
-        if (this.state.avatar === "") {
-            this.sendBody()
-        }
-        const getExtention = function(fileName) {
-            return fileName.split('.').pop();
-        }
-        newAvatar = this.changeFilename(this.state.avatar.name)
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("avatar", this.state.avatar, newAvatar);
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
+        if (fileChanged) {
+            const getExtention = function(fileName) {
+                return fileName.split('.').pop();
             }
-        };
-        let avatarLowered = this.state.avatar.name.toLowerCase();
-        if (getExtention(avatarLowered) === "png" || getExtention(avatarLowered) === "jpeg" || getExtention(avatarLowered) === "jpg") {
-            console.log("file state", this.state)
-            axios.post("/api/uploads/upload/avatar", formData, config);
-            this.matchAudioFileNames(newAvatar);   
+            newAvatar = this.changeFilename(this.state.avatar.name)
+            const formData = new FormData();
+            formData.append("avatar", this.state.avatar, newAvatar);
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            };
+            let avatarLowered = this.state.avatar.name.toLowerCase();
+            if (getExtention(avatarLowered) === "png" || getExtention(avatarLowered) === "jpeg" || getExtention(avatarLowered) === "jpg") {
+                axios.post("/api/uploads/upload/avatar", formData, config);
+                this.matchAudioFileNames(newAvatar);   
+            }
         } else {
-            return
+            this.sendBody(false)
         }
     }
 
-    sendBody() {
-        return fetch(`/api/users/updateProfile/${this.props.loggedUser._id}`, {
-            method: 'PUT',
-            headers: new Headers({'Content-Type': 'application/json'}),
-            body: JSON.stringify(this.state)
-        }).then(res => res.json())
-        .then(this.props.componentDidMount())
+    sendBody(changeAvatar) {
+        if (changeAvatar === true) {
+            return fetch(`/api/users/updateProfile/${this.props.loggedUser._id}`, {
+                method: 'PUT',
+                headers: new Headers({'Content-Type': 'application/json'}),
+                body: JSON.stringify(this.state)
+            }).then(res => res.json())
+            .then(this.props.componentDidMount())
+        } else {
+            return fetch(`/api/users/updateProfile/${this.props.loggedUser._id}`, {
+                method: 'PUT',
+                headers: new Headers({'Content-Type': 'application/json'}),
+                body: JSON.stringify(this.state)
+            }).then(res => res.json())
+            .then(this.props.componentDidMount())
+        }
     }
 
     render() {
@@ -93,6 +102,7 @@ class UserProfileCard extends Component {
             <form onSubmit={this.handleSubmit}>
                 <button type="submit" id="edit-profile" onClick={() => {
                     profileEditMode = false
+                    this.props.componentDidMount()
                 }}>confirm</button>
                 <div className="profile-pic-and-name">
                     <img className="large-profile-pic" src={userPic} alt="large profile pic"></img>

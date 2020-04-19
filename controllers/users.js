@@ -48,6 +48,7 @@ function createJWT(user) {
 }
 
 async function updateProfile(req, res) {
+  console.log(req.body)
   const updatedProfile = await User.findByIdAndUpdate(req.params.id, req.body);
   res.status(200).json(updatedProfile);
 }
