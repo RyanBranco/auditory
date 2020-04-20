@@ -84,7 +84,6 @@ function getUpload(req, res) {
 }
 
 async function updateUpload(req, res) {
-    console.log(req.body)
     const updatedUpload = await Upload.findByIdAndUpdate(req.params.id, req.body);
     res.status(200).json(updatedUpload);
 }

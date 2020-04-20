@@ -5,7 +5,6 @@ let color;
 let awsURL = "https://auditory-app.s3-us-west-1.amazonaws.com/";
 
 const EditUpload = (props) => {
-    console.log(props.specificUpload)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     let state = {
@@ -58,7 +57,7 @@ const EditUpload = (props) => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" onChange={e => setTitle(e.target.value)}></input>
                     <p id="editUploadTitle">title</p>
-                    <textarea onChange={e => setDescription(e.target.value)}></textarea>
+                    <textarea id="editDescription" onChange={e => setDescription(e.target.value)}></textarea>
                     <p>description</p>
                     <button type="submit" id="confirmEdit">confirm edit</button>
                 </form>

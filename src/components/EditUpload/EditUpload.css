@@ -18,3 +18,9 @@
 #confirmEdit {
     float: right;
 }
+
+#editDescription {
+    color: white;
+    resize: none;
+    height: 9rem;
+}
