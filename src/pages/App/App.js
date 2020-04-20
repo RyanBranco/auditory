@@ -51,9 +51,9 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-    const loggedUser = await usersAPI.getLoggedUser(this.state.user._id);
     const uploads = await uploadsAPI.getUploads();
     if (this.state.user) {
+      const loggedUser = await usersAPI.getLoggedUser(this.state.user._id);
       const userUploads = await uploadsAPI.getUserUploads(this.state.user._id);
       this.setState({
         uploads,
