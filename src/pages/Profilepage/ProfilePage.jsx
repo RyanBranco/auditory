@@ -32,7 +32,7 @@ const ProfilePage = (props) => {
                     </Route>
                     <Route path={`${path}/uploads/edit/`}>
                         <EditUpload
-                            uploadIndex={props.uploadIndex}
+                            specificUpload={props.specificUpload}
                             componentDidMount={props.componentDidMount}
                             handleUploadDelete={props.handleUploadDelete}
                             userUploads={props.userUploads}

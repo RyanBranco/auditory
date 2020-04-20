@@ -15,3 +15,8 @@ export function deleteOne(id) {
       method: 'DELETE'
     }).then(res => res.json());
   }
+
+  export function getSpecificUpload(id) {
+    return fetch(`${BASE_URL}/myupload/${id}`)
+    .then(res => res.json())
+  }

@@ -7,6 +7,9 @@ const upload = multer({ storage: storage });
 
 router.get("/", uploadCtrl.getUploads);
 router.get("/myuploads/:id", uploadCtrl.getUserUploads);
+router.get("/myupload/:id", uploadCtrl.getUpload);
+
+router.put("/editUpload/:id", uploadCtrl.updateUpload)
 
 router.post("/upload", upload.single("audioFile"), uploadCtrl.postUpload);
 router.post("/upload/avatar", upload.single("avatar"), uploadCtrl.postUpload);

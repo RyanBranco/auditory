@@ -10,7 +10,7 @@ const UploadListCard = (props) => {
         <div className="UploadListCard">
             <img src={awsURL + props.upload.thumbnailFile} alt="thumbnail"></img>
             <div className="card-actions">
-                <Link to={`${path}/edit/${props.upload._id}`}><button id="edit" onClick={() => props.getSpecificUpload(props.index)}>edit</button></Link>
+                <Link to={`${path}/edit/${props.upload._id}`}><button id="edit" onClick={() => props.getSpecificUpload(props.upload._id)}>edit</button></Link>
                 <i id="delete" className="material-icons" onClick={() => props.handleUploadDelete(props.uploadId)}>delete</i>
             </div>
             <p className="user-upload-title">{props.upload.title}</p>

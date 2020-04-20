@@ -30,8 +30,8 @@ const WebPage = (props) => {
                 }/> 
                 <Route path="/profile" render={() =>
                     <ProfilePage
+                        specificUpload={props.specificUpload}
                         getSpecificUpload={props.getSpecificUpload}
-                        uploadIndex={props.uploadIndex}
                         loggedUser={props.loggedUser}
                         componentDidMount={props.componentDidMount}
                         getSelected={props.getSelected}

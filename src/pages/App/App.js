@@ -8,15 +8,14 @@ import * as uploadsAPI from '../../services/uploads-api';
 import * as usersAPI from "../../services/users-api";
 import "./App.css";
 
-let uploadIndex = 0;
-
 class App extends Component {
   state = {
     loggedUser: {},
     user: userService.getUser(),
     uploads: [],
     userUploads: [],
-    selectedProfileUrl: [] 
+    selectedProfileUrl: [],
+    specificUpload: {}
   }
 
   handleSignupOrLogin = () => {
@@ -44,8 +43,11 @@ class App extends Component {
     })
   }
 
-  getSpecificUpload = (idx) => {
-    uploadIndex = idx
+  getSpecificUpload = async (id) => {
+    const specificUpload = await uploadsAPI.getSpecificUpload(id);
+    this.setState({
+      specificUpload
+    })
   }
 
   componentDidMount = async () => {
@@ -79,8 +81,8 @@ class App extends Component {
           }/>
           <Route path="/" render={({ history }) => 
                     <WebPage
+                    specificUpload={this.state.specificUpload}
                     getSpecificUpload={this.getSpecificUpload}
-                    uploadIndex={uploadIndex}
                     componentDidMount={this.componentDidMount}
                     getSelected={this.getSelected}
                     selectedProfileUrl={this.state.selectedProfileUrl}
